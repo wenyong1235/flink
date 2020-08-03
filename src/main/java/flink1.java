@@ -18,7 +18,7 @@ public class flink1 {
         //主题和分区发现
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();    //流执行环境
         Properties properties = new Properties();
-        properties.setProperty("bootstrap.servers", "192.168.157.161:9092");
+        properties.setProperty("bootstrap.servers", "192.168.157.161:9092");    //服务引导
         properties.setProperty("group.id", "test1");
         DataStream<String> stream = env.addSource(new FlinkKafkaConsumer<>("test1", new SimpleStringSchema(), properties));
         SingleOutputStreamOperator<String> map = stream.map(new MapFunction<String, String>() {
